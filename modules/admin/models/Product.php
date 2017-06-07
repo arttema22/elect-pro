@@ -1,0 +1,90 @@
+<?php
+
+namespace app\modules\admin\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "{{%product}}".
+ *
+ * @property integer $id
+ * @property integer $category_id
+ * @property string $name
+ * @property string $vcode
+ * @property string $content
+ * @property string $price
+ * @property string $quantity
+ * @property string $keywords
+ * @property string $description
+ */
+class Product extends \yii\db\ActiveRecord {
+
+    public $image;
+    public $gallery;
+
+    public function behaviors() {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function tableName() {
+        return '{{%product}}';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules() {
+        return [
+            [['category_id', 'name'], 'required'],
+            [['category_id'], 'integer'],
+            [['content'], 'string'],
+            [['price'], 'number'],
+            [['name', 'vcode', 'quantity', 'keywords', 'description'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'png, jpg'],
+            [['gallery'], 'file', 'extensions' => 'png, jpg', 'maxFiles' => 5],
+        ];
+    }
+
+    public function getCategory() {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels() {
+        return [
+            'id' => Yii::t('admin', 'ID'),
+            'category_id' => Yii::t('admin', 'Category ID'),
+            'name' => Yii::t('admin', 'Name'),
+            'vcode' => Yii::t('admin', 'Vcode'),
+            'content' => Yii::t('admin', 'Content'),
+            'price' => Yii::t('admin', 'Price'),
+            'image' => Yii::t('admin', 'Photo'),
+            'gallery' => Yii::t('admin', 'Gallery'),
+            'quantity' => Yii::t('admin', 'Quantity'),
+            'keywords' => Yii::t('admin', 'Keywords'),
+            'description' => Yii::t('admin', 'Description'),
+        ];
+    }
+
+    public function upload() {
+        if ($this->validate()) {
+            $path = 'images/products/' . $this->image->baseName . '.' . $this->image->extension;
+            $this->image->saveAs($path); // сохраняем файл с изображением
+            $this->attachImage($path, true); // сохраняем путь к файлу в БД
+            @unlink($path); // Удаляем файл оригинала         
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
