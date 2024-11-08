@@ -1,0 +1,17 @@
+@mixin mediaLandscape {
+   @media screen and (min-width: $landscape) {
+      @content;
+   }
+}
+
+@mixin mediaTablet {
+   @media screen and (min-width: $tablet) {
+      @content;
+   }
+}
+
+@mixin mediaDesktop {
+   @media screen and (min-width: $desktop) {
+      @content;
+   }
+}

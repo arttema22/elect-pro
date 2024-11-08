@@ -1,0 +1,317 @@
+.header_top {
+   padding: 0 15px;
+   background: $light-gray;
+
+   @include mediaLandscape {
+      padding: 0 16px;
+   }
+
+   .width_wrap {
+      padding: 16px 0;
+      margin: 0 auto;
+      position: relative;
+      max-width: 1340px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      @include mediaLandscape {
+         padding: 12px 0;
+         width: 100%;
+      }
+   }
+}
+
+.categor_toggle {
+   display: flex;
+   flex: 0 0 auto;
+   justify-content: center;
+   align-items: center;
+   width: 154px;
+   height: 40px;
+   padding: 0 10px;
+   margin: 0 auto 0 0;
+   color: $main;
+   border-radius: 4px;
+   text-transform: uppercase;
+   cursor: pointer;
+
+   font: {
+      size: 14px;
+      weight: 700;
+   }
+
+   background: {
+      image: none;
+      repeat: no-repeat;
+      color: $white;
+      position: 16px 50%;
+   }
+
+   box: {
+      sizing: border-box;
+      shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   }
+
+   @include mediaLandscape {
+      width: 200px;
+      height: 48px;
+      margin: 0 8px 0 0;
+      padding: 0 20px 0 48px;
+      background-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2216px%22%20height%3D%2212px%22%20%20viewBox%3D%220%200%2016%2012%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M1%202A.75.75%200%200%201%201%20.5h14A.75.75%200%201%201%2015%202H1zm0%204.75a.75.75%200%200%201%200-1.5h14a.75.75%200%201%201%200%201.5H1zm0%204.75A.75.75%200%201%201%201%2010h8a.75.75%200%201%201%200%201.5H1z%22%20fill%3D%22%23222222%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+   }
+
+   @include mediaTablet {
+      display: none;
+   }
+}
+
+.top_menu {
+   position: static;
+   flex: 0 0 auto;
+
+   @include mediaLandscape {
+      position: relative;
+   }
+
+   @include mediaTablet {
+      flex: 1 1 auto;
+   }
+
+   .menu__toggle {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      margin: 0 0 0 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      box-sizing: border-box;
+      border: 1px solid rgba(51, 51, 51, 0.15);
+      background: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2218px%22%20height%3D%224px%22%20%20viewBox%3D%220%200%2018%204%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M2%204a2%202%200%201%201%200-4%202%202%200%200%201%200%204zm7%200a2%202%200%201%201%200-4%202%202%200%200%201%200%204zm7%200a2%202%200%201%201%200-4%202%202%200%200%201%200%204z%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") 50% 50% no-repeat;
+      flex: 0 0 auto;
+      transition: all 0.2s;
+
+      @include mediaLandscape {
+         width: 48px;
+         height: 48px;
+         margin: 0 8px 0 0;
+      }
+
+      @include mediaTablet {
+         display: none;
+      }
+   }
+
+   .clear-list {
+      left: 0;
+      right: 0;
+      top: 100%;
+      width: auto;
+      opacity: 0;
+      z-index: 100;
+      padding: 20px 0;
+      border-radius: 4px;
+      position: absolute;
+      pointer-events: none;
+      background-color: $white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      list-style: none;
+
+      @include mediaLandscape {
+         padding: 0;
+         margin: 0 0 0 -11px;
+         display: flex;
+         flex-wrap: wrap;
+      }
+
+      @include mediaTablet {
+         position: relative;
+         opacity: 1;
+         border-radius: 0;
+         background-color: unset;
+         box-shadow: none;
+      }
+
+      a {
+         color: $main;
+         display: block;
+         font-size: 14px;
+         padding: 8px 24px;
+         text-decoration: none;
+      }
+
+      >li {
+         @include mediaLandscape {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+         }
+
+         >a {
+            color: $main;
+            font-size: 13px;
+            text-decoration: none;
+            display: block;
+            padding: 16px 11px 17px;
+         }
+
+         ul {
+            padding: 20px;
+            margin: 0;
+            list-style: none;
+            width: 220px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: block;
+
+            box: {
+               sizing: border-box;
+               shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            border-radius: 6px;
+            background: $white;
+            transform: translateY(16px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s,
+            transform 0.2s;
+            z-index: 5;
+
+            li {
+               position: relative;
+
+               a {
+                  color: $main;
+                  font-size: 13px;
+                  text-decoration: none;
+                  display: block;
+                  padding: 5px 11px;
+               }
+            }
+         }
+      }
+   }
+}
+
+.cabinet__toggle {
+   width: 40px;
+   height: 40px;
+   margin: 0 0 0 2px;
+   padding: 0;
+   font-size: 0;
+   border-radius: 4px;
+
+   background: {
+      position: 50%;
+      color: $light-gray;
+      repeat: no-repeat;
+      image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2216px%22%20height%3D%2216px%22%20%20viewBox%3D%220%200%2016%2016%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M8.849%208.75H4.5v4.75a.5.5%200%200%200%20.5.5h8.5a.5.5%200%200%200%20.5-.5v-11a.5.5%200%200%200-.5-.5H5a.5.5%200%200%200-.5.5v2.25a.75.75%200%200%201-1.5%200V2.5a2%202%200%200%201%202-2h8.5a2%202%200%200%201%202%202v11a2%202%200%200%201-2%202H5a2%202%200%200%201-2-2V8.75H.75a.75.75%200%200%201%200-1.5h8.099L7.626%205.416a.75.75%200%201%201%201.248-.832L11.151%208l-2.277%203.416a.75.75%200%201%201-1.248-.832L8.849%208.75z%22%20fill%3D%22%23333333%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+   }
+
+   border: 1px solid rgba(51, 51, 51, 0.15);
+   color: #333;
+   cursor: pointer;
+   font-weight: 700;
+   box-sizing: border-box;
+   display: flex;
+   flex: 0 0 auto;
+   align-items: center;
+   transition: all 0.2s;
+
+   @include mediaLandscape {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 0 0;
+   }
+
+   @include mediaTablet {
+      width: 200px;
+      font-size: 14px;
+      padding: 10px 10px 10px 48px;
+      background-position: 16px 50%;
+   }
+}
+
+.cart_preview {
+   margin: 0 0 0 2px;
+   position: relative;
+
+   @include mediaLandscape {
+      margin: 0 0 0 auto;
+   }
+}
+
+.cart_preview__title {
+   padding: 0;
+   width: 40px;
+   height: 40px;
+   border-radius: 4px;
+   color: $white;
+   cursor: pointer;
+   overflow: hidden;
+   line-height: 48px;
+   position: relative;
+   transition: all 0.2s;
+
+   font: {
+      size: 0;
+      weight: 700;
+   }
+
+   background: {
+      position: 50%;
+      color: $blue;
+      repeat: no-repeat;
+      image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2216px%22%20height%3D%2216px%22%20%20viewBox%3D%220%200%2016%2016%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M12.007%206.75H2.247a.25.25%200%200%200-.244.304l1.555%207a.25.25%200%200%200%20.244.196h8.396a.25.25%200%200%200%20.244-.196l1.555-7a.25.25%200%200%200-.244-.304h-1.746zM3.64%205.25l2.993-3.742a1.75%201.75%200%200%201%202.734%200L12.36%205.25h1.393a1.75%201.75%200%200%201%201.709%202.13l-1.556%207a1.75%201.75%200%200%201-1.708%201.37H3.802c-.82%200-1.53-.57-1.708-1.37l-1.556-7a1.75%201.75%200%200%201%201.709-2.13H3.64zm1.92%200h4.88L8.195%202.445a.25.25%200%200%200-.39%200L5.56%205.25zM5.5%209A.75.75%200%200%201%207%209v3a.75.75%200%201%201-1.5%200V9zM9%209a.75.75%200%200%201%201.5%200v3A.75.75%200%201%201%209%2012V9z%22%20fill%3D%22%23ffffff%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+   }
+
+   box: {
+      sizing: border-box;
+      shadow: 0 3px 5px -2px rgba(130, 130, 130, 0.21);
+   }
+
+   @include mediaLandscape {
+      width: 200px;
+      height: 48px;
+      padding: 0 48px;
+      font-size: 14px;
+      background-position: 16px 50%;
+   }
+
+   @include mediaTablet {}
+
+   &.no_events {
+      pointer-events: none;
+   }
+
+   @include mediaLandscape {
+      &:before {
+         top: 0;
+         right: 0;
+         width: 48px;
+         height: 100%;
+         content: '';
+         position: absolute;
+         background-color: rgba(0, 0, 0, 0.14);
+      }
+   }
+
+   @include mediaLandscape {
+      &:after {
+         top: 20px;
+         right: 19px;
+         content: '';
+         position: absolute;
+         transition: all 0.2s;
+
+         border: {
+            top: 7px solid #fff;
+            right: 5px solid transparent;
+            bottom: 0 solid #fff;
+            left: 5px solid transparent;
+         }
+      }
+   }
+}

@@ -1,0 +1,235 @@
+.header_bot {
+   padding: 0 15px;
+   background-color: $white;
+
+   @include mediaLandscape {
+      padding: 0 16px;
+   }
+
+   .width_wrap {
+      width: 100%;
+      margin: 0 auto;
+      max-width: 1340px;
+      padding: 24px 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      @include mediaLandscape {
+         padding: 24px 0;
+         justify-content: flex-end;
+      }
+
+      .contacts {
+         padding: 12px 0 0;
+         max-width: 200px;
+         flex: 0 0 auto;
+
+         @include mediaLandscape {
+            padding: 0 0 0 20px;
+         }
+      }
+
+      .search {
+         margin: 24px 0 0;
+      }
+   }
+}
+
+.company {
+   width: 100%;
+   display: block;
+   max-width: 100%;
+   text-align: center;
+   margin: 0 auto 0 0;
+   flex: 1 1 auto;
+
+   @include mediaLandscape {
+      display: flex;
+      max-width: calc(100% - 220px);
+      align-items: center;
+      text-align: left;
+   }
+}
+
+.company__name {
+   color: #333;
+   font-size: 22px;
+   font-weight: 700;
+
+   a {
+      color: inherit;
+      text-decoration: none;
+   }
+}
+
+.company__description {
+   padding: 8px 0 0;
+   color: #0064d4;
+   font-size: 14px;
+}
+
+.contacts__toggle {
+   cursor: pointer;
+
+   div.receive_calls {
+      display: none;
+      color: #c5c5c5;
+      font-size: 13px;
+      pointer-events: none;
+   }
+
+   div.tel-wrap {
+      pointer-events: none;
+
+      span {
+         color: #222;
+         font-size: 16px;
+         font-weight: 700;
+         padding: 0 44px 0 0;
+         pointer-events: none;
+         display: inline-block;
+         vertical-align: middle;
+         background-repeat: no-repeat;
+         background-position: right 70%;
+         background: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2218px%22%20height%3D%224px%22%20%20viewBox%3D%220%200%2018%204%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M2%204a2%202%200%201%201%200-4%202%202%200%200%201%200%204zm7%200a2%202%200%201%201%200-4%202%202%200%200%201%200%204zm7%200a2%202%200%201%201%200-4%202%202%200%200%201%200%204z%22%20fill%3D%22%23222222%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") top 50% right 0 no-repeat;
+      }
+   }
+}
+
+.contacts__body {
+   left: 50%;
+   right: 0;
+   width: 290px;
+   padding: 32px 18px;
+   transform: translate3d(-50%, 0, 0);
+   top: calc(100% + 16px);
+   opacity: 0;
+   z-index: 100;
+   position: absolute;
+   border-radius: 6px;
+   pointer-events: none;
+   box-sizing: border-box;
+   background-color: #fff;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+   @include mediaLandscape {
+      left: -28px;
+      width: 420px;
+      top: calc(100% + 36px);
+      padding: 25px 30px 36px;
+   }
+
+   span.close {
+      cursor: pointer;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 100px;
+      background-position: 50%;
+      background-color: #fbfbfb;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2212px%22%20height%3D%2212px%22%20%20viewBox%3D%220%200%2012%2012%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M5.95%207.414l-4.243%204.243a1%201%200%200%201-1.414-1.414L4.536%206%20.293%201.757A1%201%200%201%201%201.707.343l9.9%209.9a1%201%200%201%201-1.415%201.414L5.95%207.414zm4.242-7.07a1%201%200%201%201%201.415%201.413l-2.76%202.76a1%201%200%200%201-1.415-1.413l2.76-2.76z%22%20fill%3D%22%23222222%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E");
+   }
+}
+
+.contacts__title {
+   font-size: 16px;
+   padding: 0 0 32px;
+   color: #222;
+   font-weight: 700;
+
+   @include mediaLandscape {
+      font-size: 24px;
+      padding: 0 0 28px;
+   }
+}
+
+.contacts__phones {
+   .item_title {
+      font-size: 13px;
+      padding: 0 0 2px;
+      color: #c5c5c5;
+
+      @include mediaLandscape {
+         font-size: 14px;
+         padding: 0 0 7px;
+      }
+   }
+
+   .item_body {
+      font-size: 0;
+      color: #222;
+      font-weight: 700;
+
+      div {
+         font-size: 14px;
+         letter-spacing: 0.003em;
+
+         @include mediaLandscape {
+            font-size: 16px;
+         }
+      }
+   }
+}
+
+.contacts a {
+   color: inherit;
+   text-decoration: none;
+}
+
+.contacts__address {
+   font-size: 13px;
+   line-height: 1.4;
+   color: #888;
+
+   @include mediaLandscape {
+      font-size: 14px;
+      line-height: 1.3;
+   }
+}
+
+.contacts__email {
+   font-size: 13px;
+
+   @include mediaLandscape {
+      font-size: 14px;
+   }
+}
+
+.search {
+   max-width: 100%;
+   flex: 0 0 auto;
+   width: 100%;
+   font-size: 0;
+   height: 42px;
+   position: relative;
+   border-radius: 2px;
+   box-sizing: border-box;
+   border: 1px solid #8e8e8e;
+
+   .text_search {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 40px);
+
+      input {
+         color: #c5c5c5;
+         margin: 0;
+         height: 40px;
+         border: none;
+         font-size: 14px;
+         font-weight: 400;
+         padding: 0 0 0 24px;
+         display: inline-block;
+         vertical-align: middle;
+         box-sizing: border-box;
+         width: calc(100% - 40px);
+         background-color: transparent;
+         outline: none;
+      }
+   }
+}
